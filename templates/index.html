@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fish Classification</title>
+    <link href="https://fonts.googleapis.com/css2?family=Shanti&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h2>Fish Species Prediction</h2>
+    <form action="{{ url_for('predict') }}" method="POST">
+        <input type="text" name="Weight" placeholder="Weight" required="required" />
+        <input type="text" name="Length1" placeholder="Length1" required="required" />
+        <input type="text" name="Length2" placeholder="Length2" required="required" />
+        <input type="text" name="Length3" placeholder="Length3" required="required" />
+        <input type="text" name="Height" placeholder="Height" required="required" />
+        <input type="text" name="Width" placeholder="Width" required="required" />
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html>
